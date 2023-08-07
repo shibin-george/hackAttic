@@ -1,0 +1,21 @@
+version: 0.1
+log:
+  fields:
+    service: registry
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+  tls:
+    letsencrypt:
+      cachefile: /home/shibing/cache-file
+      email: emailused@letsencrypt.com
+      hosts: [myregistryaddress.org]
+      directoryurl: https://acme-v02.api.letsencrypt.org/directory
+auth:
+  htpasswd:
+    realm: basic-realm
+    path: /home/shibing/.htpasswd
+
+
+docker run -d -p 5000:5000 --restart=always --name registry -v `pwd`/config.yml:/etc/docker/registry/config.yml registry:2
