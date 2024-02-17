@@ -1,0 +1,3 @@
+[submodule "Serving-DNS/dnserver"]
+	path = Serving-DNS/dnserver
+	url = https://github.com/shibin-george/dnserver.git
